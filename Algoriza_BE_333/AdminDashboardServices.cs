@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Service;
-using Core.Domain;
+﻿using Core.Service;
 using Algoriza_BE_333.Repository;
 
 namespace Service
