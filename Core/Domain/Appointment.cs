@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Core.Domain
 {
@@ -13,7 +14,9 @@ namespace Core.Domain
         [Key]
         public int AppointmentId { get; set; }
 
-
+        public int PatientID{ get; set; }
+        [ForeignKey("PatientID")]
+        public Patient patients { get; set; }
         //ForeignKey from doctor's table
         public int DoctorID { get; set; }
         [ForeignKey("DoctorID")]
@@ -21,6 +24,7 @@ namespace Core.Domain
 
         [Required]
         public DayOfWeek Day { get; set; }
+
     }
     public enum DayOfWeek
     {

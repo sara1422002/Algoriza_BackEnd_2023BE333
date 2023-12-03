@@ -15,12 +15,14 @@ namespace Core.Domain
         public int ID { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string Name { get; set; }
-
-        [Required]
         [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
 
         [Required]
         [Phone]
@@ -43,6 +45,8 @@ namespace Core.Domain
         public int SpecializationID { get; set; }
         [ForeignKey("SpecializationID")]
         public Specialization Specializations { get; set; }
+
+        public ICollection<Appointment> appointments { get; set; }
     }
     public enum Gender
     {

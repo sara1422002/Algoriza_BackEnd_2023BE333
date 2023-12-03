@@ -34,6 +34,8 @@ namespace Core.Domain
         [PasswordPropertyText]
         public string Passwordhash { get; set; }
 
+        public ICollection<Appointment> appointments { get; set; }
+
 
     }
 }

@@ -24,4 +24,10 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.33.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Algoriza_BE_333\Algoriza_BE_333.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DependencyInjection\DependencyInjection.csproj" />
+  </ItemGroup>
+
 </Project>

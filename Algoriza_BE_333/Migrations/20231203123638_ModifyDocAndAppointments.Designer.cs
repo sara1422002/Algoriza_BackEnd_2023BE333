@@ -11,8 +11,8 @@ using Algoriza_BE_333.Repository;
 namespace Algoriza_BE_333.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231202182101_AddAppointmentsTable")]
-    partial class AddAppointmentsTable
+    [Migration("20231203123638_ModifyDocAndAppointments")]
+    partial class ModifyDocAndAppointments
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,6 +112,10 @@ namespace Algoriza_BE_333.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -129,6 +133,44 @@ namespace Algoriza_BE_333.Migrations
                     b.HasIndex("UserRoleID");
 
                     b.ToTable("doctors");
+                });
+
+            modelBuilder.Entity("Core.Domain.Patient", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Passwordhash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserRoleID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserRoleID");
+
+                    b.ToTable("patients");
                 });
 
             modelBuilder.Entity("Core.Domain.Specialization", b =>
@@ -188,6 +230,17 @@ namespace Algoriza_BE_333.Migrations
                     b.Navigation("ApplicationUsers");
 
                     b.Navigation("Specializations");
+                });
+
+            modelBuilder.Entity("Core.Domain.Patient", b =>
+                {
+                    b.HasOne("Core.Domain.ApplicationUser", "ApplicationUsers")
+                        .WithMany()
+                        .HasForeignKey("UserRoleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUsers");
                 });
 #pragma warning restore 612, 618
         }
