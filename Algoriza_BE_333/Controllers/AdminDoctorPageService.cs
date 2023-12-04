@@ -92,6 +92,18 @@ namespace Algoriza_BE_333.Controllers
             }
             return Ok(updatedDoctor);
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteDoctor(int id)
+        {
+            var deletedDoctor = _adminDoctorPageService.DeleteDoctor(id);
+            if (deletedDoctor == null)
+            {
+                return NotFound(); // Return 404 Not Found if the doctor with the specified ID is not found
+            }
+
+            return Ok(deletedDoctor);
+        }
+
 
     }
 

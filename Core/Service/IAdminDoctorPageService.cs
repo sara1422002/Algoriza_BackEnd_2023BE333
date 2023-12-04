@@ -20,7 +20,8 @@ namespace Core.Service
             bool Save();
 
         
-        public Doctor UpdateDoctor(Doctor updateDoctor);
+         Doctor UpdateDoctor(Doctor updateDoctor);
+         Doctor DeleteDoctor(int id);
 
 
 

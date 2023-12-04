@@ -73,5 +73,19 @@ namespace Repository
             return existingDoctor;
 
         }
+        //barmaget deleting the doctor 
+
+        public Doctor DeleteDoctor(int id)
+        {
+            var DoctorToDelete = _dbContext.doctors.Find(id);
+            if (DoctorToDelete == null)
+            {
+                return null; // Return null if the doctor with the specified ID is not found
+            }
+            _dbContext.doctors.Remove(DoctorToDelete);
+            _dbContext.SaveChanges();
+            return DoctorToDelete;
+
+        }
     }
 }
