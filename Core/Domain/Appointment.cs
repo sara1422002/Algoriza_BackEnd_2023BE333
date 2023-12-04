@@ -18,7 +18,7 @@ namespace Core.Domain
 
         [Required]
         public DayOfWeek Day { get; set; }
-
+        public Doctor Doctor { get; set; }
     }
     public enum DayOfWeek
     {

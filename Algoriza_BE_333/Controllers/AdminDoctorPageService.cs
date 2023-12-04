@@ -1,4 +1,7 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.Numerics;
+using Algoriza_BE_333.Dto;
+using AutoMapper;
 using Core.Domain;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +14,13 @@ namespace Algoriza_BE_333.Controllers
     public class AdminDoctorPageController : Controller
     {
         private readonly IAdminDoctorPageService _adminDoctorPageService;
-        
-        public AdminDoctorPageController(IAdminDoctorPageService adminDoctorPageService)
+        private readonly IMapper _mapper;
+
+
+        public AdminDoctorPageController(IAdminDoctorPageService adminDoctorPageService, IMapper mapper)
         {
             _adminDoctorPageService = adminDoctorPageService ?? throw new ArgumentNullException(nameof(adminDoctorPageService));
+            _mapper = mapper;
         }
 
 
@@ -22,7 +28,7 @@ namespace Algoriza_BE_333.Controllers
         [ProducesResponseType(200, Type = typeof(Doctor))]
         public IActionResult GetDoctors()
         {
-            var DoctorList = _adminDoctorPageService.GetAllDoctors();
+            var DoctorList = _mapper.Map<List<DoctorDto>>(_adminDoctorPageService.GetAllDoctors());
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -43,20 +49,37 @@ namespace Algoriza_BE_333.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetDoctorByID(int DoctorID)
         {
-            var doctor = _adminDoctorPageService.GetDoctorByID(DoctorID);
+            var doctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.GetDoctorByID(DoctorID));
+
 
             if (!_adminDoctorPageService.DoctorExist(DoctorID))
             {
                 return NotFound(); // Return 404 Not Found if the doctor with the specified ID is not found
             }
-            
-           if(!ModelState.IsValid) 
-               return BadRequest(ModelState);
 
-           return Ok(DoctorID);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            }
+            return Ok(DoctorID);
 
         }
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult DoctorCreate([FromBody] Doctor doctorCreate)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var newDoctor = _mapper.Map<Doctor>(_adminDoctorPageService.CreateDoctor(doctorCreate));
+            return CreatedAtAction(nameof(GetDoctorByID), new { id = newDoctor.ID }, newDoctor);
+
+
+        }
+
+    }
+
 }
 

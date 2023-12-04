@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Domain;
 
+
 namespace Core.Service
 {
     public interface IAdminDoctorPageService
@@ -12,7 +13,12 @@ namespace Core.Service
    
             ICollection<Doctor> GetAllDoctors();
             Doctor GetDoctorByID(int id);
-        public bool DoctorExist(int id);
+            public bool DoctorExist(int id);
+
+        //interface el creating doctor fel admin doctor page 
+        public Doctor CreateDoctor(Doctor doctor);
+            bool Save();
+
 
 
     }
