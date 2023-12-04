@@ -34,7 +34,7 @@ namespace Repository
         public ICollection<Specialization> GetTopSpecializationsWithMostDoctors()
         {
             return _dbContext.Specializations
-                .OrderByDescending(specialization => _dbContext.doctors.Count(doctor => doctor.SpecializationID == specialization.ID))
+                .OrderByDescending(specialization => _dbContext.doctors.Count(doctor => doctor.ID == specialization.ID))
                 .Take(5)
                 .ToList();
         }

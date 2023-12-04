@@ -8,17 +8,15 @@ namespace Core.Domain
         [Key]
         public int AppointmentId { get; set; }
 
-        public int PatientID{ get; set; }
         [ForeignKey("PatientID")]
         public Patient patients { get; set; }
         //ForeignKey from doctor's table
-        public int DoctorID { get; set; }
+    
         [ForeignKey("DoctorID")]
         public Doctor Doctors { get; set; }
 
         [Required]
         public DayOfWeek Day { get; set; }
-        public Doctor Doctor { get; set; }
     }
     public enum DayOfWeek
     {

@@ -36,7 +36,7 @@ namespace Repository
                            Email = doctor.Email,
                            Name = doctor.Name,
                            Phone = doctor.Phone,
-                           SpecializationID = doctor.SpecializationID,
+                           Specializations = doctor.Specializations,
                            Password = doctor.Password
                         };
 

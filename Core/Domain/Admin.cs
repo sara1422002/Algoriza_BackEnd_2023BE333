@@ -17,7 +17,6 @@ namespace Core.Domain
         public string PasswordHash { get; set; }
 
         //ForeignKey from ApplicationUser Table
-        public int UserRoleId { get; set; }
         [ForeignKey("UserRoleId")]
         public ApplicationUser applicationUser { get; set; }
     }

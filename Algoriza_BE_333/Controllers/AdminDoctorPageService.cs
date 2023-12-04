@@ -73,7 +73,7 @@ namespace Algoriza_BE_333.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var newDoctor = _mapper.Map<Doctor>(_adminDoctorPageService.CreateDoctor(doctorCreate));
+            var newDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.CreateDoctor(doctorCreate));
             return CreatedAtAction(nameof(GetDoctorByID), new { id = newDoctor.ID }, newDoctor);
 
 
@@ -85,7 +85,7 @@ namespace Algoriza_BE_333.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var updatedDoctor = _adminDoctorPageService.UpdateDoctor(updateDoctor);
+            var updatedDoctor = _mapper.Map < DoctorDto > (_adminDoctorPageService.UpdateDoctor(updateDoctor));
             if(updatedDoctor == null)
             {
                 return NotFound();
@@ -95,7 +95,7 @@ namespace Algoriza_BE_333.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteDoctor(int id)
         {
-            var deletedDoctor = _adminDoctorPageService.DeleteDoctor(id);
+            var deletedDoctor = _mapper.Map < DoctorDto > (_adminDoctorPageService.DeleteDoctor(id));
             if (deletedDoctor == null)
             {
                 return NotFound(); // Return 404 Not Found if the doctor with the specified ID is not found

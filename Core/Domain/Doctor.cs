@@ -27,7 +27,6 @@ namespace Core.Domain
 
         [Required]
         //Foreignkey for UserRoleID
-        public int UserRoleID { get; set; }
         [ForeignKey("UserRoleID")]
         public ApplicationUser ApplicationUsers { get; set; }
 
@@ -37,7 +36,6 @@ namespace Core.Domain
 
         // Navigation property for Specialization ID
         //ForeignKey
-        public int SpecializationID { get; set; }
         [ForeignKey("SpecializationID")]
         public Specialization Specializations { get; set; }
 
