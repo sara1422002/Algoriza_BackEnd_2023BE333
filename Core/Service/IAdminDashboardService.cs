@@ -17,4 +17,5 @@ namespace Core.Service
 
         ICollection<Specialization> GetTopSpecializationsWithMostDoctors();
     }
+
 }
