@@ -10,6 +10,8 @@ namespace Algoriza_BE_333.Helper
         {
             CreateMap<Doctor, DoctorDto>();
             CreateMap<Patient, PatientDto>();
+            CreateMap<Appointment, AppointmentDto>();
+            CreateMap<Specialization, SpecializationDto>();
 
         }
 

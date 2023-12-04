@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Numerics;
-using Algoriza_BE_333.Dto;
+﻿using Algoriza_BE_333.Dto;
 using AutoMapper;
 using Core.Domain;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Abstractions;
+
 
 namespace Algoriza_BE_333.Controllers
 {
@@ -50,8 +48,6 @@ namespace Algoriza_BE_333.Controllers
         public IActionResult GetDoctorByID(int DoctorID)
         {
             var doctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.GetDoctorByID(DoctorID));
-
-
             if (!_adminDoctorPageService.DoctorExist(DoctorID))
             {
                 return NotFound(); // Return 404 Not Found if the doctor with the specified ID is not found
@@ -68,12 +64,11 @@ namespace Algoriza_BE_333.Controllers
         [ProducesResponseType(400)]
         public IActionResult DoctorCreate([FromBody] Doctor doctorCreate)
         {
-
+            var newDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.CreateDoctor(doctorCreate));
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var newDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.CreateDoctor(doctorCreate));
             return CreatedAtAction(nameof(GetDoctorByID), new { id = newDoctor.ID }, newDoctor);
 
 
@@ -81,11 +76,11 @@ namespace Algoriza_BE_333.Controllers
         [HttpPut]
         public IActionResult UpdateDoctor([FromBody] Doctor updateDoctor)
         {
+            var updatedDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.UpdateDoctor(updateDoctor));
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var updatedDoctor = _mapper.Map < DoctorDto > (_adminDoctorPageService.UpdateDoctor(updateDoctor));
             if(updatedDoctor == null)
             {
                 return NotFound();

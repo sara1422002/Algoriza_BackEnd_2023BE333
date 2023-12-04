@@ -1,5 +1,4 @@
 ﻿using Core.Domain;
-using Core.Service;
 namespace Algoriza_BE_333.Dto
 {
     public class AppointmentDto

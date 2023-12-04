@@ -14,8 +14,6 @@ namespace DependencyInjection
         {
             services.AddControllers();
 
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(Configure.GetConnectionString("@\"Data Source=(localdb)\\ProjectModels;Initial Catalog=Vezeeta;Integrated Security=True\"")));
             services.AddTransient<IAdminDashboardService, AdminDashboardServices>();
             services.AddTransient<IAdminDoctorPageService, AdminDoctorPageService>();
             services.AddTransient<IAdminPatientPageService, AdminPatientPageService>();

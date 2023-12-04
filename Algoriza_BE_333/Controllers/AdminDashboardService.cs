@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using Algoriza_BE_333.Dto;
+﻿using Algoriza_BE_333.Dto;
 using AutoMapper;
 using Core.Domain;
 using Core.Service;
@@ -21,9 +19,6 @@ namespace Algoriza_BE_333.Controllers
             mapper = _mapper;
 
         }
-
-
-
 
         [HttpGet]
         [ProducesResponseType(200, Type=typeof(IEnumerable<Doctor>))]

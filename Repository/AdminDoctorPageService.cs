@@ -27,8 +27,6 @@ namespace Repository
             {
                 return _dbContext.doctors.Any(d=>d.ID == id);
             }
-
-        //Barmaget El Creating doctor fel admin doctor page
             public Doctor CreateDoctor(Doctor doctor)
             {
                         var doctorOwner = new Doctor()
@@ -51,41 +49,39 @@ namespace Repository
                 return saved>0?true :false;
             }
 
-        //Barmaget Updating el doctor
 
-        public Doctor UpdateDoctor(Doctor updateDoctor)
-        {
-            var existingDoctor = _dbContext.doctors.Find(updateDoctor.ID);
-            if (existingDoctor == null) 
+            public Doctor UpdateDoctor(Doctor updateDoctor)
             {
-                return null;
+                var existingDoctor = _dbContext.doctors.Find(updateDoctor.ID);
+                if (existingDoctor == null) 
+                {
+                    return null;
+                }
+                existingDoctor.Email = updateDoctor.Email?? existingDoctor.Email;
+                existingDoctor.Password = updateDoctor.Password ?? existingDoctor.Password;
+                existingDoctor.Name = updateDoctor.Name ?? existingDoctor.Name;
+                existingDoctor.ApplicationUsers = updateDoctor.ApplicationUsers ?? existingDoctor.ApplicationUsers;
+                existingDoctor.Image = updateDoctor.Image ?? existingDoctor.Image;
+                existingDoctor.appointments = updateDoctor.appointments ?? existingDoctor.appointments;
+                existingDoctor.Phone = updateDoctor.Phone ?? existingDoctor.Phone;
+                existingDoctor.Specializations = updateDoctor.Specializations ?? existingDoctor.Specializations;
+
+                _dbContext.SaveChanges();
+                return existingDoctor;
+
             }
-            existingDoctor.Email = updateDoctor.Email?? existingDoctor.Email;
-            existingDoctor.Password = updateDoctor.Password ?? existingDoctor.Password;
-            existingDoctor.Name = updateDoctor.Name ?? existingDoctor.Name;
-            existingDoctor.ApplicationUsers = updateDoctor.ApplicationUsers ?? existingDoctor.ApplicationUsers;
-            existingDoctor.Image = updateDoctor.Image ?? existingDoctor.Image;
-            existingDoctor.appointments = updateDoctor.appointments ?? existingDoctor.appointments;
-            existingDoctor.Phone = updateDoctor.Phone ?? existingDoctor.Phone;
-            existingDoctor.Specializations = updateDoctor.Specializations ?? existingDoctor.Specializations;
 
-            _dbContext.SaveChanges();
-            return existingDoctor;
-
-        }
-        //barmaget deleting the doctor 
-
-        public Doctor DeleteDoctor(int id)
-        {
-            var DoctorToDelete = _dbContext.doctors.Find(id);
-            if (DoctorToDelete == null)
+            public Doctor DeleteDoctor(int id)
             {
-                return null; // Return null if the doctor with the specified ID is not found
-            }
-            _dbContext.doctors.Remove(DoctorToDelete);
-            _dbContext.SaveChanges();
-            return DoctorToDelete;
+                var DoctorToDelete = _dbContext.doctors.Find(id);
+                if (DoctorToDelete == null)
+                {
+                    return null; // Return null if the doctor with the specified ID is not found
+                }
+                _dbContext.doctors.Remove(DoctorToDelete);
+                _dbContext.SaveChanges();
+                return DoctorToDelete;
 
-        }
+            }
     }
 }

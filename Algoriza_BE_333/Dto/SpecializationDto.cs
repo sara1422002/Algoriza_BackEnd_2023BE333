@@ -1,5 +1,4 @@
-﻿using Core.Service;
-namespace Algoriza_BE_333.Dto
+﻿namespace Algoriza_BE_333.Dto
 {
     public class SpecializationDto
     {

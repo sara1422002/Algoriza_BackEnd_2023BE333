@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Algoriza_BE_333.Dto;
+﻿using Algoriza_BE_333.Dto;
 using AutoMapper;
 using Core.Domain;
 using Core.Service;
@@ -24,15 +23,15 @@ namespace Algoriza_BE_333.Controllers
         public IActionResult GetPatients()
         {
             var PatientList = _mapper.Map < List < PatientDto >>( _adminPatientPageService.GetAllPatients());
+            var dashboardData = new
+            {
+                PatientList = PatientList
+            };
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
 
             }
-            var dashboardData = new
-            {
-                PatientList = PatientList
-            };
             return Ok(dashboardData);
         }
 

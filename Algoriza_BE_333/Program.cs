@@ -1,6 +1,4 @@
 using Algoriza_BE_333.Repository;
-using Algoriza_BE_333.Controllers;
-using Core.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
