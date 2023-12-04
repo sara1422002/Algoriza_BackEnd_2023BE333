@@ -11,6 +11,8 @@ namespace Core.Service
     {
    
             ICollection<Doctor> GetAllDoctors();
+            Doctor GetDoctorByID(int id);
+        public bool DoctorExist(int id);
 
 
     }

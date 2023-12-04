@@ -18,6 +18,7 @@ namespace DependencyInjection
             //    options.UseSqlServer(Configure.GetConnectionString("@\"Data Source=(localdb)\\ProjectModels;Initial Catalog=Vezeeta;Integrated Security=True\"")));
             services.AddTransient<IAdminDashboardService, AdminDashboardServices>();
             services.AddTransient<IAdminDoctorPageService, AdminDoctorPageService>();
+            services.AddTransient<IAdminPatientPageService, AdminPatientPageService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });

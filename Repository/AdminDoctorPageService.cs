@@ -17,7 +17,16 @@ namespace Repository
                 return _dbContext.doctors.ToList();
             }
 
+            public Doctor GetDoctorByID(int id)
+            {
+                return _dbContext.doctors.Where(d=>d.ID == id).FirstOrDefault();
+            }
 
-        
+            public bool DoctorExist(int id)
+            {
+                return _dbContext.doctors.Any(d=>d.ID == id);
+            }
+
+
     }
 }
