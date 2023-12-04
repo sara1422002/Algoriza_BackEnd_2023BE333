@@ -1,9 +1,9 @@
-﻿using Core.Service;
-using Algoriza_BE_333.Repository;
+﻿using Algoriza_BE_333.Repository;
+using Core.Service;
 
-namespace Service
+namespace Repository
 {
-    public class AdminDashboardServices:IAdminDashboardService
+    public class AdminDashboardServices : IAdminDashboardService
     {
         private readonly ApplicationDbContext _dbContext;
 

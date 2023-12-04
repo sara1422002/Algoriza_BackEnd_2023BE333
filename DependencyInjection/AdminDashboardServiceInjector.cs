@@ -1,18 +1,14 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Core.Service;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Algoriza_BE_333.Repository;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Repository;
 using Microsoft.OpenApi.Models;
-using Service;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Core.Service;
 
-
-namespace Algoriza_BE_333
+namespace DependencyInjection
 {
-    public class Startup
+    public class AdminDashboardServiceInjector
     {
         public void ConfigureServices(IServiceCollection services)
         {
@@ -25,6 +21,8 @@ namespace Algoriza_BE_333
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
             });
+
+
         }
         public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -40,5 +38,7 @@ namespace Algoriza_BE_333
                 endpoints.MapControllers();
             });
         }
+
     }
+
 }

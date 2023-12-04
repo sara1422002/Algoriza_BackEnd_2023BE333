@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34321.82
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algoriza_BE_333", "Algoriza_BE_333.csproj", "{20C93E3B-16E6-4B66-984B-045689159246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algoriza_BE_333", "Algoriza_BE_333.csproj", "{20C93E3B-16E6-4B66-984B-045689159246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\Core\Core.csproj", "{BD886A15-85DE-48CD-8DF1-F631778978C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "..\Core\Core.csproj", "{BD886A15-85DE-48CD-8DF1-F631778978C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "..\Repository\Repository.csproj", "{43E1651F-1963-47D4-B494-B9C4B5D1CEF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "..\Repository\Repository.csproj", "{43E1651F-1963-47D4-B494-B9C4B5D1CEF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "..\DependencyInjection\DependencyInjection.csproj", "{9A51337E-29C5-4C91-9EF2-EB085DC7F7B5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "..\Service\Service.csproj", "{256CB398-0C1B-4E35-AF0B-92A1F912638A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "..\DependencyInjection\DependencyInjection.csproj", "{9A51337E-29C5-4C91-9EF2-EB085DC7F7B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{9A51337E-29C5-4C91-9EF2-EB085DC7F7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A51337E-29C5-4C91-9EF2-EB085DC7F7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A51337E-29C5-4C91-9EF2-EB085DC7F7B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{256CB398-0C1B-4E35-AF0B-92A1F912638A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{256CB398-0C1B-4E35-AF0B-92A1F912638A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{256CB398-0C1B-4E35-AF0B-92A1F912638A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{256CB398-0C1B-4E35-AF0B-92A1F912638A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
