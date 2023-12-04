@@ -19,6 +19,9 @@ namespace Core.Service
         public Doctor CreateDoctor(Doctor doctor);
             bool Save();
 
+        
+        public Doctor UpdateDoctor(Doctor updateDoctor);
+
 
 
     }

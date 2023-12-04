@@ -78,6 +78,20 @@ namespace Algoriza_BE_333.Controllers
 
 
         }
+        [HttpPut]
+        public IActionResult UpdateDoctor([FromBody] Doctor updateDoctor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var updatedDoctor = _adminDoctorPageService.UpdateDoctor(updateDoctor);
+            if(updatedDoctor == null)
+            {
+                return NotFound();
+            }
+            return Ok(updatedDoctor);
+        }
 
     }
 

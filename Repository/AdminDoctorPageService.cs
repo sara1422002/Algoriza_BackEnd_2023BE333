@@ -50,5 +50,28 @@ namespace Repository
                 var saved =_dbContext.SaveChanges();
                 return saved>0?true :false;
             }
+
+        //Barmaget Updating el doctor
+
+        public Doctor UpdateDoctor(Doctor updateDoctor)
+        {
+            var existingDoctor = _dbContext.doctors.Find(updateDoctor.ID);
+            if (existingDoctor == null) 
+            {
+                return null;
+            }
+            existingDoctor.Email = updateDoctor.Email?? existingDoctor.Email;
+            existingDoctor.Password = updateDoctor.Password ?? existingDoctor.Password;
+            existingDoctor.Name = updateDoctor.Name ?? existingDoctor.Name;
+            existingDoctor.ApplicationUsers = updateDoctor.ApplicationUsers ?? existingDoctor.ApplicationUsers;
+            existingDoctor.Image = updateDoctor.Image ?? existingDoctor.Image;
+            existingDoctor.appointments = updateDoctor.appointments ?? existingDoctor.appointments;
+            existingDoctor.Phone = updateDoctor.Phone ?? existingDoctor.Phone;
+            existingDoctor.Specializations = updateDoctor.Specializations ?? existingDoctor.Specializations;
+
+            _dbContext.SaveChanges();
+            return existingDoctor;
+
+        }
     }
 }
