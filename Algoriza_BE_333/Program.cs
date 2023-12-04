@@ -1,3 +1,7 @@
+using Algoriza_BE_333.Repository;
+using Algoriza_BE_333.Controllers;
+using Core.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ApplicationDbContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

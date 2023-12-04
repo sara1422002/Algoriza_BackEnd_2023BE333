@@ -1,4 +1,5 @@
 ﻿using Algoriza_BE_333.Repository;
+using Core.Domain;
 using Core.Service;
 
 namespace Repository
@@ -26,5 +27,18 @@ namespace Repository
         {
             return _dbContext.appointments.Count();
         }
+        public ICollection<Doctor> GetTopDoctorsWithMostAppointments()
+        {
+            return _dbContext.doctors.OrderByDescending(doctor => doctor.appointments.Count).Take(10).ToList();
+        }
+        public ICollection<Specialization> GetTopSpecializationsWithMostDoctors()
+        {
+            return _dbContext.Specializations
+                .OrderByDescending(specialization => _dbContext.doctors.Count(doctor => doctor.SpecializationID == specialization.ID))
+                .Take(5)
+                .ToList();
+        }
+
+
     }
 }

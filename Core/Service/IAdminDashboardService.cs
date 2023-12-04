@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Domain;
 
 namespace Core.Service
 {
@@ -11,5 +12,9 @@ namespace Core.Service
         int GetDoctorCount();
         int GetPatientCount();
         int GetRequestCount();
+
+        ICollection<Doctor> GetTopDoctorsWithMostAppointments();
+
+        ICollection<Specialization> GetTopSpecializationsWithMostDoctors();
     }
 }
