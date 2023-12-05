@@ -8,7 +8,7 @@ namespace Core.Service
             ICollection<Doctor> GetAllDoctors();
             Doctor GetDoctorByID(int id);
             public bool DoctorExist(int id);
-            public Doctor CreateDoctor(Doctor doctor);
+            Doctor CreateDoctor(int id,string name , string phone  , Gender gender, string email , string password , string image, ApplicationUser userrole );
             bool Save();
             Doctor UpdateDoctor(Doctor updateDoctor);
             Doctor DeleteDoctor(int id);

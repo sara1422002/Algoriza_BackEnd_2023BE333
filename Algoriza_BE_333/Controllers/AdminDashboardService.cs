@@ -11,6 +11,7 @@ namespace Algoriza_BE_333.Controllers
     public class AdminDashboardController : Controller
     {
         private readonly IAdminDashboardService _adminDashboardService;
+      
         private readonly IMapper _mapper;
 
         public AdminDashboardController(IAdminDashboardService adminDashboardService, IMapper mapper)

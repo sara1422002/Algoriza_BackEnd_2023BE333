@@ -11,8 +11,8 @@ namespace Algoriza_BE_333.Controllers
     [ApiController]
     public class AdminDoctorPageController : Controller
     {
-        private readonly IAdminDoctorPageService _adminDoctorPageService;
-        private readonly IMapper _mapper;
+        private  IAdminDoctorPageService _adminDoctorPageService;
+        private  IMapper _mapper;
 
 
         public AdminDoctorPageController(IAdminDoctorPageService adminDoctorPageService, IMapper mapper)
@@ -60,20 +60,22 @@ namespace Algoriza_BE_333.Controllers
 
         }
         [HttpPost]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(200, Type = typeof(Doctor))]
         [ProducesResponseType(400)]
-        public IActionResult DoctorCreate([FromBody] Doctor doctorCreate)
+        public IActionResult DoctorCreate(int id, string name, string phone, Gender gender, string email, string password, string image, ApplicationUser userrole)
         {
-            var newDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.CreateDoctor(doctorCreate));
+            var newDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.CreateDoctor(id,name, phone,gender,email,password,image,userrole));
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return CreatedAtAction(nameof(GetDoctorByID), new { id = newDoctor.ID }, newDoctor);
+            return CreatedAtAction(nameof(Doctor), new { id = newDoctor.ID }, newDoctor);
 
 
         }
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(Doctor))]
+        [ProducesResponseType(400)]
         public IActionResult UpdateDoctor([FromBody] Doctor updateDoctor)
         {
             var updatedDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.UpdateDoctor(updateDoctor));
@@ -87,7 +89,10 @@ namespace Algoriza_BE_333.Controllers
             }
             return Ok(updatedDoctor);
         }
+
         [HttpDelete("{id}")]
+        [ProducesResponseType(200, Type = typeof(Doctor))]
+        [ProducesResponseType(400)]
         public IActionResult DeleteDoctor(int id)
         {
             var deletedDoctor = _mapper.Map < DoctorDto > (_adminDoctorPageService.DeleteDoctor(id));

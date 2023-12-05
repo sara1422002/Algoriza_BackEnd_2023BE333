@@ -27,15 +27,24 @@ namespace Repository
             {
                 return _dbContext.doctors.Any(d=>d.ID == id);
             }
-            public Doctor CreateDoctor(Doctor doctor)
-            {
+            public Doctor CreateDoctor(int id, string name, string phone, Gender gender, string email, string password, string image, ApplicationUser userrole)
+        {
                         var doctorOwner = new Doctor()
                         {
-                           Email = doctor.Email,
-                           Name = doctor.Name,
-                           Phone = doctor.Phone,
-                           Specializations = doctor.Specializations,
-                           Password = doctor.Password
+                            ID = id,
+                           Email = email,
+                           Name = name,
+                           Phone = phone,
+                           Password = password,
+                          Image = image,
+                          Gender = gender,
+                          ApplicationUsers = userrole
+                       
+                          
+
+
+                     
+
                         };
 
                         _dbContext.doctors.Add(doctorOwner);

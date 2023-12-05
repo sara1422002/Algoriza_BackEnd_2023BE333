@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Core.Domain
 {
@@ -18,14 +19,15 @@ namespace Core.Domain
         [Required]
         public DayOfWeek Day { get; set; }
     }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DayOfWeek
     {
-        Saturday = 0,
-        Sunday = 1,
-        Monday = 2,
-        Tuesday = 3,
-        Wednsday = 4,
-        Thursday = 5,
-        Friday = 6,
+        Saturday,
+        Sunday,
+        Monday ,
+        Tuesday,
+        Wednsday,
+        Thursday,
+        Friday,
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 
 namespace Core.Domain
@@ -41,10 +42,11 @@ namespace Core.Domain
 
         public ICollection<Appointment> appointments { get; set; }
     }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Gender
     {
-        Female = 0,
-        Male = 1
+        Female,
+        Male
     }
 }
 
