@@ -1,4 +1,6 @@
-﻿using Core.Domain;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Core.Domain;
 
 
 namespace Core.Service
@@ -8,7 +10,7 @@ namespace Core.Service
             ICollection<Doctor> GetAllDoctors();
             Doctor GetDoctorByID(int id);
             public bool DoctorExist(int id);
-            Doctor CreateDoctor(int id,string name , string phone  , Gender gender, string email , string password , string image, ApplicationUser userrole );
+            Task<Doctor > CreateDoctor(Doctor doctor);
             bool Save();
             Doctor UpdateDoctor(Doctor updateDoctor);
             Doctor DeleteDoctor(int id);

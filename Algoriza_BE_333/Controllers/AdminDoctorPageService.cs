@@ -1,8 +1,12 @@
-﻿using Algoriza_BE_333.Dto;
+﻿using System.Numerics;
+using System.Reflection;
+using System.Xml.Linq;
+using Algoriza_BE_333.Dto;
 using AutoMapper;
 using Core.Domain;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Algoriza_BE_333.Controllers
@@ -11,8 +15,8 @@ namespace Algoriza_BE_333.Controllers
     [ApiController]
     public class AdminDoctorPageController : Controller
     {
-        private  IAdminDoctorPageService _adminDoctorPageService;
-        private  IMapper _mapper;
+        private IAdminDoctorPageService _adminDoctorPageService;
+        private IMapper _mapper;
 
 
         public AdminDoctorPageController(IAdminDoctorPageService adminDoctorPageService, IMapper mapper)
@@ -62,17 +66,16 @@ namespace Algoriza_BE_333.Controllers
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(Doctor))]
         [ProducesResponseType(400)]
-        public IActionResult DoctorCreate(int id, string name, string phone, Gender gender, string email, string password, string image, ApplicationUser userrole)
+        public async Task<IActionResult> CreateCreateDoctor([FromForm]Doctor doctor)
         {
-            var newDoctor = _mapper.Map<DoctorDto>(_adminDoctorPageService.CreateDoctor(id,name, phone,gender,email,password,image,userrole));
+            var newDoctor = await _adminDoctorPageService.CreateDoctor(doctor);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return CreatedAtAction(nameof(Doctor), new { id = newDoctor.ID }, newDoctor);
-
-
+            return CreatedAtAction(nameof(GetDoctorByID), new { id = newDoctor.ID }, newDoctor);
         }
+
         [HttpPut]
         [ProducesResponseType(200, Type = typeof(Doctor))]
         [ProducesResponseType(400)]
