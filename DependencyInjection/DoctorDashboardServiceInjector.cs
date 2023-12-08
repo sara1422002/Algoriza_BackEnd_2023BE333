@@ -19,6 +19,7 @@ namespace DependencyInjection
         {
             services.AddControllers();
             services.AddTransient<IDoctorLoginPageService, DoctorLoginPageService>();
+            services.AddTransient<IDoctorSettingPageService, DoctorSettingPageService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });

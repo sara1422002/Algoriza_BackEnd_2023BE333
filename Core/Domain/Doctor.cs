@@ -40,6 +40,9 @@ namespace Core.Domain
         public Specialization Specializations { get; set; }
 
         public ICollection<Appointment> appointments { get; set; }
+
+        public Double Price { get; set; }
+
     }
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Gender
