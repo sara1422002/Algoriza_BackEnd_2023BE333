@@ -6,7 +6,6 @@ using AutoMapper;
 using Core.Domain;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Algoriza_BE_333.Controllers

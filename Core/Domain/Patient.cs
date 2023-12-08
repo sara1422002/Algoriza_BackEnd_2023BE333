@@ -11,6 +11,9 @@ namespace Core.Domain
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string LastName { get; set; }
 
         [ForeignKey("UserRoleID")]
         public ApplicationUser ApplicationUsers { get; set; }

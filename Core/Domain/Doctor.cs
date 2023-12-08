@@ -26,7 +26,6 @@ namespace Core.Domain
 
         public Gender Gender { get; set; }
 
-        [Required]
         //Foreignkey for UserRoleID
         [ForeignKey("UserRoleID")]
         public ApplicationUser ApplicationUsers { get; set; }
