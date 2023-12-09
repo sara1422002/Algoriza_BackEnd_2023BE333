@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 namespace Core.Domain
 {
-    public class Patient
+    public class Patient : ApplicationUser
     {
         [Key]
         public int ID { get; set; }

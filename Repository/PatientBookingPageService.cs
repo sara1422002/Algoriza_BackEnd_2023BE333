@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Algoriza_BE_333.Dto;
-using Algoriza_BE_333.Repository;
+﻿using Algoriza_BE_333.Repository;
 using Core.Domain;
 using Core.Service;
-using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {

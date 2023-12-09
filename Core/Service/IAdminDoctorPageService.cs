@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Core.Domain;
+﻿using Core.Domain;
 
 
 namespace Core.Service

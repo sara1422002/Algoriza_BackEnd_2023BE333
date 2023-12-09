@@ -10,13 +10,6 @@ namespace Core.Domain
         [Key]
         public int AppointmentId { get; set; }
 
-        //[ForeignKey("PatientID")]
-        //public Patient patients { get; set; }
-        ////ForeignKey from doctor's table
-    
-        //[ForeignKey("DoctorID")]
-        //public Doctor Doctors { get; set; }
-
         [Required]
         public DayOfWeek Day { get; set; }
 

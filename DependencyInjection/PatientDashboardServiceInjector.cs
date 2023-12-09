@@ -14,7 +14,7 @@ namespace DependencyInjection
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IPatientLoginPageService,PatientLoginPageService>();
+            services.AddTransient<ILoginPageService, LoginPageService>();
             services.AddTransient<IPatientRegistrationPageService,PatientRegisterationPageService>();
             services.AddTransient<IPatientSearchDoctorPageService,PatientSearchDoctorPageService>();
             services.AddTransient<IPatientBookingPageService,PatientBookingPageService>();

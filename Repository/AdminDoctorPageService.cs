@@ -1,5 +1,4 @@
-﻿using Algoriza_BE_333.Dto;
-using Algoriza_BE_333.Repository;
+﻿using Algoriza_BE_333.Repository;
 using Core.Domain;
 using Core.Service;
 
@@ -37,10 +36,8 @@ namespace Repository
             var doctorOwner = new Doctor()
             {
                 ID = doctor.ID,
-                Email = doctor.Email,
                 Name = doctor.Name,
                 Phone = doctor.Phone,
-                Password = doctor.Password,
                 Image = doctor.Image,
                 Gender = doctor.Gender,
                 ApplicationUsers = doctor.ApplicationUsers
@@ -58,8 +55,6 @@ namespace Repository
             {
                 return null;
             }
-            existingDoctor.Email = updateDoctor.Email ?? existingDoctor.Email;
-            existingDoctor.Password = updateDoctor.Password ?? existingDoctor.Password;
             existingDoctor.Name = updateDoctor.Name ?? existingDoctor.Name;
             existingDoctor.ApplicationUsers = updateDoctor.ApplicationUsers ?? existingDoctor.ApplicationUsers;
             existingDoctor.Image = updateDoctor.Image ?? existingDoctor.Image;

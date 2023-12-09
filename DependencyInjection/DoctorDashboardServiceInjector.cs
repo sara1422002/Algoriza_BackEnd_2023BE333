@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Service;
+﻿using Core.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +13,7 @@ namespace DependencyInjection
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IDoctorLoginPageService, DoctorLoginPageService>();
+            services.AddTransient<ILoginPageService, LoginPageService>();
             services.AddTransient<IDoctorSettingPageService, DoctorSettingPageService>();
 
             services.AddSwaggerGen(c =>

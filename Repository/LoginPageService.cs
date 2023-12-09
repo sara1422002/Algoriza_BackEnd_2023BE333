@@ -1,19 +1,24 @@
-﻿using Core.Domain;
-using Core.Service;
-using Microsoft.AspNetCore.Identity;
+﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.Configuration;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
+using Core.Domain;
+using Core.Service;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Repository
 {
-    public class DoctorLoginPageService : IDoctorLoginPageService
+    public class LoginPageService : ILoginPageService
     {
-        private readonly SignInManager<Doctor> _signinmanager;
+        private readonly SignInManager<ApplicationUser> _signinmanager;
         private readonly IConfiguration _configuration;
-        public DoctorLoginPageService(SignInManager<Doctor> signInManager, IConfiguration configuration)
+
+        public LoginPageService(SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
         {
             _signinmanager = signInManager;
             _configuration = configuration;

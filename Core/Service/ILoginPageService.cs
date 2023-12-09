@@ -7,7 +7,7 @@ using Core.Domain;
 
 namespace Core.Service
 {
-    public interface IDoctorLoginPageService
+    public interface ILoginPageService
     {
         Task<string> LoginAsync(SignIn signin);
     }
