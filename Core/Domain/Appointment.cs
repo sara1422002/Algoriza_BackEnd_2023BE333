@@ -21,6 +21,12 @@ namespace Core.Domain
         public DayOfWeek Day { get; set; }
 
         public DateAndTime DateAndTime { get; set; }
+
+        [ForeignKey("DiscountCodeId")]
+        public DiscountCodeCoupoun DiscountCodeCoupoun { get; set; }
+
+        public float Price { get; set; }
+
     }
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DayOfWeek

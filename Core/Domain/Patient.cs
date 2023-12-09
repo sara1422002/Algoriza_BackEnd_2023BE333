@@ -31,6 +31,7 @@ namespace Core.Domain
         [PasswordPropertyText]
         public string Passwordhash { get; set; }
 
+        [ForeignKey("AppointmentId")]
         public ICollection<Appointment> appointments { get; set; }
 
 

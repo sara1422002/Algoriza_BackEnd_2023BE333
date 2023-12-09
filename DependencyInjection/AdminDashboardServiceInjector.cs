@@ -17,6 +17,7 @@ namespace DependencyInjection
             services.AddTransient<IAdminDashboardService, AdminDashboardServices>();
             services.AddTransient<IAdminDoctorPageService, AdminDoctorPageService>();
             services.AddTransient<IAdminPatientPageService, AdminPatientPageService>();
+            services.AddTransient<IAdminSettingPageService, AdminSettingPageService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });

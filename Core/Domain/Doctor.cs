@@ -39,6 +39,7 @@ namespace Core.Domain
         [ForeignKey("SpecializationID")]
         public Specialization Specializations { get; set; }
 
+        [ForeignKey("AppointmentId")]
         public ICollection<Appointment> appointments { get; set; }
 
         public Double Price { get; set; }

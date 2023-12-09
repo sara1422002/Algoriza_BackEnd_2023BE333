@@ -18,6 +18,9 @@ namespace Algoriza_BE_333.Repository
 
         public DbSet<Patient> patients { get; set; }    
 
+        public DbSet<DiscountCodeCoupoun> discounts { get; set; }
+
+
     }
 
 
